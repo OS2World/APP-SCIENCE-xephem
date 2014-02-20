@@ -1,0 +1,85 @@
+XCOMM Imakefile for xephem v3.5
+
+OBJS =			\
+	aavso.o		\
+	atlas.o		\
+	bdl.o		\
+	broadcast.o	\
+	calmenu.o	\
+	closemenu.o	\
+	compiler.o	\
+	coordsmenu.o	\
+	constel.o	\
+	datamenu.o	\
+	db.o		\
+	dbmenu.o	\
+	earthmap.o	\
+	earthmenu.o	\
+	fallbacks.o	\
+	formats.o	\
+	fsmenu.o	\
+	glance.o	\
+	gsc.o		\
+	gscnet.o	\
+	helpmenu.o	\
+	homeio.o	\
+	hznmenu.o	\
+	jupmenu.o	\
+	listmenu.o	\
+	mainmenu.o	\
+	marsmenu.o	\
+	marsmmenu.o	\
+	moonmenu.o	\
+	moonnf.o	\
+	msgmenu.o	\
+	netmenu.o	\
+	objmenu.o	\
+	patchlevel.o	\
+	plot_aux.o	\
+	plotmenu.o	\
+	preferences.o	\
+	progress.o	\
+	ps.o		\
+	query.o		\
+	rotated.o	\
+	satmenu.o	\
+	saveres.o	\
+	scope.o		\
+	setiathome.o	\
+	sites.o		\
+	skyeyep.o	\
+	skyfiltmenu.o	\
+	skyfits.o	\
+	skyhist.o	\
+	skyip.o		\
+	skylist.o	\
+	skytoolbar.o	\
+	skyviewmenu.o	\
+	solsysmenu.o	\
+	srchmenu.o	\
+	time.o		\
+	tips.o		\
+	trailmenu.o	\
+	uranusmenu.o	\
+	usno.o		\
+	versionmenu.o	\
+	webdbmenu.o	\
+	xe2.o		\
+	xephem.o	\
+	xmisc.o
+
+SRCS = 	$(OBJS:.o=.c)
+
+XCOMM Sometimes you need -lXp after -lXm
+          XMLIB = -lXm
+        DEPLIBS = $(DEPXMLIB) $(DEPXTOOLLIB) $(DEPXLIB)
+ EXTRA_INCLUDES = -I../../libastro -I../../libip
+  LOCAL_LDFLAGS = -L../../libastro -L../../libip
+LOCAL_LIBRARIES = $(XMLIB) $(XTOOLLIB) $(XLIB) -lastro -lip
+  SYS_LIBRARIES = -lm
+       PROGRAMS = xephem
+
+ComplexProgramTarget(xephem)
+
+XCOMM For RCS Only -- Do Not Edit
+XCOMM @(#) $RCSfile: Imakefile,v $ $Date: 2001/10/10 06:07:55 $ $Revision: 1.27 $ $Name:  $

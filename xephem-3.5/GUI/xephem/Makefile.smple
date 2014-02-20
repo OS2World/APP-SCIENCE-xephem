@@ -1,0 +1,130 @@
+# Simple Makefile for xephem v3.5
+
+# Sample compile and link flags for a few systems. Find yours or one that
+# looks like the way Motif applications are built on your system. Remove the
+# leading "# " to uncomment the lines. The basic idea is just to compile
+# libastro in ../../libastro, libip in ../../libip, then compile and link all
+# the *.c files here into one executable, xephem.
+
+# -I and -L flags to find libastro.a and libip.a
+LIBINC = -I../../libastro -I../../libip
+LIBLNK = -L../../libastro -L../../libip
+LIBLIB = -lastro -lip
+
+# linux or Mac OS X with Open Group motif installed in /usr/X11R6/{lib,include}
+# CC = cc
+# CLDFLAGS = -ffast-math
+# CFLAGS = $(LIBINC) $(CLDFLAGS) -O2 -Wall -I/usr/X11R6/include
+# LDFLAGS = -s $(LIBLNK) $(CLDFLAGS) -L/usr/X11R6/lib
+# XLIBS = -lXm -lXp -lXt -lXext -lX11
+# LIBS = $(XLIBS) $(LIBLIB) -lm
+
+# MKS Enterprise toolkit
+# CC = cc
+# CLDFLAGS =
+# CFLAGS = $(LIBINC) $(CLDFLAGS) -O
+# LDFLAGS = $(LIBLNK) $(CLDFLAGS) -W/subsystem:windows -s
+# XLIBS = -lXm -lXt -lX11
+# LIBS = $(XLIBS) $(LIBLIB) -lm
+
+# SVR4 derivatives:
+# CC = cc
+# CLDFLAGS = 
+# CFLAGS = $(LIBINC) $(CLDFLAGS) -O
+# LDFLAGS = $(LIBLNK) $(CLDFLAGS)
+# XLIBS = -lXm -lXt -lX11
+# LIBS = $(XLIBS) $(LIBLIB) -lsocket -lnsl -lc -lm /usr/ucblib/libucb.a
+# Note: if you get regex undefined, add -lgen to the end of LIBS.
+
+# Solaris:
+# Motif stuff might also be in /usr/dt/share/{include,lib}.
+# be sure /opt/SUNWspro/bin and /usr/ccs/bin are in your PATH ahead of /usr/ucb.
+# CC = cc
+# CLDFLAGS =
+# MOTIFI = -I/usr/dt/include
+# MOTIFL = -L/usr/dt/lib -R/usr/dt/lib
+# CFLAGS = $(LIBINC) $(CLDFLAGS) -O $(MOTIFI) -I/usr/openwin/include
+# LDFLAGS = $(LIBLNK) $(CLDFLAGS) $(MOTIFL) -L/usr/openwin/lib
+# XLIBS = -lXm -lXt -lX11
+# LIBS = $(XLIBS) $(LIBLIB) -lm -lsocket -lnsl
+
+.PRECIOUS:	xephem
+
+OBJS =			\
+	aavso.o		\
+	atlas.o		\
+	bdl.o		\
+	broadcast.o	\
+	calmenu.o	\
+	closemenu.o	\
+	compiler.o	\
+	constel.o	\
+	coordsmenu.o	\
+	datamenu.o	\
+	db.o		\
+	dbmenu.o	\
+	earthmap.o	\
+	earthmenu.o	\
+	fallbacks.o	\
+	formats.o	\
+	fsmenu.o	\
+	glance.o	\
+	gsc.o		\
+	gscnet.o	\
+	helpmenu.o	\
+	homeio.o	\
+	hznmenu.o	\
+	jupmenu.o	\
+	listmenu.o	\
+	mainmenu.o	\
+	marsmenu.o	\
+	marsmmenu.o	\
+	moonmenu.o	\
+	moonnf.o	\
+	msgmenu.o	\
+	netmenu.o	\
+	objmenu.o	\
+	patchlevel.o	\
+	plot_aux.o	\
+	plotmenu.o	\
+	preferences.o	\
+	progress.o	\
+	ps.o		\
+	query.o		\
+	rotated.o	\
+	satmenu.o	\
+	saveres.o	\
+	scope.o		\
+	setiathome.o	\
+	sites.o		\
+	skyeyep.o	\
+	skyfiltmenu.o	\
+	skyfits.o	\
+	skyhist.o	\
+	skyip.o		\
+	skylist.o	\
+	skytoolbar.o	\
+	skyviewmenu.o	\
+	solsysmenu.o	\
+	srchmenu.o	\
+	time.o		\
+	tips.o		\
+	trailmenu.o	\
+	uranusmenu.o	\
+	usno.o		\
+	versionmenu.o	\
+	webdbmenu.o	\
+	xe2.o		\
+	xephem.o	\
+	xmisc.o
+
+all: xephem xephem.1
+
+xephem: $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+
+xephem.1: xephem.man
+	nroff -man $? > $@
+
+# For RCS Only -- Do Not Edit
+# @(#) $RCSfile: Makefile.smple,v $ $Date: 2001/10/10 05:59:38 $ $Revision: 1.37 $ $Name:  $

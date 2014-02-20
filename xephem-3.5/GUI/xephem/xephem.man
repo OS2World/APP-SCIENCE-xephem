@@ -1,0 +1,116 @@
+.TH XEphem 1X
+.SH Name
+XEphem 3.5 \- an interactive astronomical ephemeris for X
+.SH Syntax
+\fBxephem [-prfb] [-install {yes|no|guess}] [-resfile <resourcefile>]\fP
+.SH Description
+.na
+.nh
+.PP
+XEphem is an interactive astronomical ephemeris program for X Windows systems.
+It provides many graphical views as well as quantitative heliocentric,
+geocentric and topocentric information for Earth satellites, solar system
+and celestial objects.
+
+XEphem contains extensive context-sensitive on-line help. Virtually none of
+that help is duplicated here so go ahead and run XEphem to learn more.
+
+The
+.I Main window
+of XEphem provides control and display of three basic services: observing
+circumstances, looping, and access to additional tools and displays.
+Observing circumstances includes location, date, time and atmospheric
+conditions (used for the refraction model). Looping refers to the ability to
+set up XEphem so that it automatically increments time at a desired step size
+and rate. Additional displays provide all of the graphical and quantitative
+information available, and always refer to the circumstances defined in the
+main menu. Tools provide access to plotting, searching, AAVSO, Seti@Home
+and more.
+
+.SH Options
+.B -prfb
+displays all the built-in default resources, then exits.
+
+.B -install
+controls whether XEphem will install a private colormap. Without this option
+XEphem will try to decide automatically whether it is necessary. To force
+using a private colormap, use 
+.I -install yes;
+to prevent it use
+.I -install no.
+The default automatic behavior is equivalent to
+.I -install guess.
+
+.B -resfile <resourcefile>
+tells XEphem to use an alternate file for initial resource settings. See below
+for the default situation.
+
+.SH Menu Tour
+.I File
+
+This menu controls basic operation, including exiting. When XEphem
+is first started it may beep. This means a message
+has been put in the
+.B System log
+dialog, which can be displayed from this
+menu. Other chores here include setting up network access;
+displaying a simple progress meter; controlling time and location information
+remotely, and keyboard accelerators for time stepping.
+
+.I View
+
+This menu offers several graphical displays if the Earth, Moon and several
+planets; a user configurable table; and Sky and Solar System views.
+
+.I Tools
+
+This menu gives access to tools which can plot any XEphem
+data items; save any data items to text files for easy export to other
+programs; enter an arbitrary function to evaluate and solve using any 
+XEphem data items; access AAVSO online; monitor your Seti@Home client; show
+the Night at a glance; find close pairs of objects; and convert among
+various astonomical coordinate systems.
+
+.I Data
+
+This menu gives control over which objects XEphem will work with.
+Objects may be created on the fly, read from catalog files, downloaded
+from the Internet, deleted or searched. A special category of objects known as
+.I Field Stars
+may be configured, which are very large catalogs of objects whose access
+has been optimized. Up to three User objects may be assigned for especially
+easy access in several other places throughout XEphem.
+
+.I Preferences
+
+This menu offers several configuration choices. These will effect the
+overall appearance or behavior of XEphem.
+These choices, as well as fonts and colors, can be changed
+at runtime and saved to disk to become the new defaults.
+
+.I Help
+
+This menu offers overall information about XEphem;
+context sensitive help;
+several worked examples;
+references; version number and the Copyright statement.
+
+.SH X Resources
+XEphem initial conditions are defined using
+a resource file. By default the file is named XEphem located in a directory
+also called XEphem in your $HOME directory. You should never find the need
+to edit this by hand because XEphem will manage it when you Save settings.
+
+.SH Author
+.PP
+Elwood Downey, email ecdowney@ClearSkyInstitute.com.
+
+.SH References
+.PP
+The latest information about XEphem is maintained at
+.I http://www.clearskyinstitute.com/xephem
+.PP
+The online Help entry
+.I on Credits
+lists many of the references, individuals and organizations which have
+contributed to XEphem.

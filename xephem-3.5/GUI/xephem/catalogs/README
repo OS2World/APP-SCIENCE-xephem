@@ -1,0 +1,122 @@
+This is a collection of files in xephem database format. Included here are
+asteroids, comets, stars, deep-sky objects, earth satellites and spacecraft.
+Work on the databases is a major project in itself. There are bound to be
+errors. Authoritative contributions welcome.
+
+YBS.edb are all of the entries in the Yale Bright Star Catalog which have
+a Bayer and/or a Flamsteed number. A few with common names have been renamed.
+Contact the author if you would like the remaining stars (ecdowney@noao.edu).
+
+Messier.edb is the Messier catalog.
+
+Minor planets which can ever be at least mag 13 are in asteroids.edb. Those
+which are never as bright are in asteroids_dim.edb. They are named with their
+sequence number followed by their common name, if one has been assigned. 
+These were created using mpcorb2edb.pl on the file described below which is
+courtesy Minor Planet Center. Follows is the text from their orginal
+catalog file they asked to be included with with each usage:
+
+    This file contains published orbital elements for all numbered and
+    unnumbered multi-opposition minor planets for which it is possible to
+    make reasonable predictions.  It also includes published elements for
+    recent one-opposition minor planets and is intended to be complete
+    through the last issued Daily Orbit Update MPEC.  As such it is intended
+    to be of interest primarily to astrometric observers.
+
+	Software programs may include this datafile amongst their datasets, as
+	long as this header is included (it is acceptable if it is contained
+	in a file separate from the actual data) and that proper attribution
+	to the Minor Planet Center is given.  Credit to the individual orbit
+	computers is implicit by the inclusion of a reference and the name of
+	the orbit computer on each orbit record.  Information on how to obtain
+	updated copies of the datafile must also be included.
+
+	The work of the individual astrometric observers, without whom none of
+	the work of the Minor Planet Center would be possible, is gratefully
+	acknowledged.
+
+    New versions of this file, updated on a daily basis, will be available at:
+
+	    ftp://cfa-ftp.harvard.edu/pub/MPCORB/MPCORB.DAT
+
+Much the same information is also available from Lowell Observatory. See
+ftp://ftp.lowell.edu/pub/elgb/astorb.html. The script astorb2edb.pl can
+be used in exactly the same way as mpcorb2edb.pl, described above.
+
+Deep-sky entries from the Saguaro Astronomy Club database Version 6.0 are in
+These entries are included but have special magnitude values of 99.9 or 79.9;
+99.9 means no magnitude was available and 79.9 applies to dark nebulae. These
+are mapped here to 19.99 and 19.98, respectively.
+
+NGC, IC and Messier are Steinicke's version from Project NGC/IC, see
+http://www.ngcig.org.
+
+UGC is the Uppsala General Catalog extracted from RC3, the Third Reference
+Catalog of Bright Galaxies, available from ftp://adc.gsfc.nasa.gov/pub/adc/
+archives/catalogs/7/7155. N.B. magnitudes for which no entry existed in the RC3
+have been set to 19.99.
+
+PGC.edb is the Catalogue of Principal Galaxies, Georges Paturel 1989 at
+ftp://adc.gsfc.nasa.gov/pub/adc/archives/catalogs/7/7119/pgc.gz
+Updated with Galaxy Coordinates II, Paturel 1999 at
+ftp://adc.gsfc.nasa.gov/pub/adc/archives/journal_tables/A+AS/140/89/table2.dat.gz
+Entries with no Magnitude or no Major Axis have been removed.
+
+bs.edb is the Bright Star catalog.
+
+gcvs.edb is the General Catalog of Variable Stars.
+
+AAVSO.edb is a list of all stars for which light curves are available from
+the AAVSO. There is significant overlap with gcvs.edb but the names here
+are guaranteed to be exactly suitable for the AAVSO tool database queries.
+
+qso.edb is from "Quasars and Active Galactic Nuclei (7th Ed.)", Veron-Cetty
+M.-P., Veron P. ESO Scientific Report 17 (1996).
+
+lbn.edb is Lynds' Catalogue of Bright Nebulae, 1965.
+
+ldn.edb is Lynds' Catalogue of Dark Nebulae, 1962.
+
+sh2.edb is the Sharpless catalogue of HII regions, 1959.
+
+cgcg.edb is CGCG (Galaxies and Clusters of Galaxies) Catalog Converted from
+CGCG Catalog on the CD-ROM from the Astronomical Data Center "Selected
+Astronomical Catalogs" by Matthias Cramer <cramer@freestone.net>
+
+ppm.xe2 is the Position in Proper Motion catalog. Converted from
+ftp://adc.gsfc.nasa.gov/pub/adc/archives/catalogs/1/1146, 1193 and 1208.
+For completeness this also includes the 1,926 SAO stars not in the PPM,
+marked as having no proper motion.
+
+WashDouble.edb is the Washington Visual Double Star Catalog, Worley+, 1996.
+
+hiptyc2.xe2 is a combined Hipparcos and Tycho2 catalog from the ESA
+Hipparcos/Tycho mission. Converted from
+ftp://adc.gsfc.nasa.gov/pub/adc/archives/catalogs/1/1259 and
+ftp://adc.gsfc.nasa.gov/pub/adc/archives/catalogs/1/1239.
+
+Orbital elements for several spacecraft are in spacecraft.edb. Updated by
+Vance Haemmerle, vance@toyvax.Tucson.AZ.US.
+
+Several comets are in comets.edb. This file is available courtesy the Minor
+Planet Center at http://cfa-www.harvard.edu/iau/Ephemerides/Soft03.html.
+
+A typical Mir element set is in mir.edb just to serve as a handy example for an
+earth satellite to try out.
+
+VLA radio calibrator sources for several wavelength bands are in vla*cm.edb.
+
+nav.edb is the navigational stars listed in the Nautical Almanac. The names
+have been changed to match the Almanac. Contributed by
+mike.wescott@columbiasc.ncr.com.
+
+hickson.edb is a list of 100 compact galaxy groups from a paper by
+Paul Hickson, "Systematic properties of compact groups of galaxies",
+The Astrophysical Journal, Vol. 255, #2, pp. 382-391, 1982.
+
+gsc is the GSC-ACT catalog.
+
+usno is the USNO SA2.0 image.
+
+IIS.edb is a typical orbital element set for the International Space Station.
+Get the latest from http://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/orbit/ISS/SVPOST.html and decode with tle2ebd.pl.

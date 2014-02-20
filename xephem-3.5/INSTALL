@@ -1,0 +1,96 @@
+How to install XEphem Version 3.5, either for just yourself or system-wide:
+
+1) Build the executable:
+
+    1.1. Explode xephem-3.5.tar.gz:
+
+	$ tar xfz xephem-3.5.tar.gz
+
+    1.2. Build the libastro.a and libip.a libraries first:
+
+	$ cd xephem-3.5/libastro
+	$ make
+	$ cd ../libip
+	$ make
+
+    1.3. Move up and over to the XEphem source directory and build:
+
+	$ cd ../GUI/xephem
+	$ xmkmf
+	$ make
+
+    If you get errors about Xm, you must find your Motif include files and
+    library. Ask your sys admin to help, or try openmotif (www.motifzone.net).
+    It might be just that your imake is not set up correctly in which case
+    read through and edit Makefile.smple, save the changed version in Makefile
+    then run make again.
+
+2) For the very curious, run it now; then choose File->Quit and go to the next
+   step:
+
+	$ ./xephem
+
+	If you get a message "X Resources out of date" you have installed
+	XEphem before and must locate and remove the old resource file. It
+	is not used with 3.5.
+
+Next do either 3a or 3b, not both:
+
+3a) Installing XEphem for just yourself without root permission (see
+    next step for system-wide multiuser installation):
+
+    3a.1 Copy the executable where you keep your private programs:
+
+	$ cp xephem $HOME/bin			# or where ever
+
+    3a.2 Create a directory off your HOME called .xephem for all per-user files
+
+	$ mkdir $HOME/.xephem
+
+    3a.3 Create an initial resource file called $HOME/.xephem/XEphem with
+    just one line in it as follows:
+
+	XEphem.ShareDir: <dir>
+    
+    where <dir> is the full path of the directory containing the directories
+    auxil/, fifos/, and fits/ and catalogs/. These are in the source
+    directory of the original tar kit; where you are now, if you have been
+    following along. You can leave them here if you like or move them, just
+    set <dir> to where ever they end up.
+
+3b) Installing XEphem for multiple users (requires root permission) (skip if
+    installing just for yourself):
+
+    3b.1 Copy the executable where everyone can find it:
+
+	$ cp xephem /usr/bin			# or where ever
+
+    3b.2 Create a directory for system-wide read-only files to be shared by all
+    XEphem users and fill with the defaults included in this kit:
+
+	$ mkdir /usr/local/xephem		# or where ever
+	$ cp -R auxil /usr/local/xephem		# copy auxil dir and contents
+	$ cp -R catalogs /usr/local/xephem	# copy catalogs dir and contents
+	$ cp -R fifos /usr/local/xephem		# copy fifos dir and contents
+	$ cp -R fits /usr/local/xephem		# copy fits dir and contents
+    
+    3b.3 Do the same as step 3a.3 above but create the new file in a place
+    where all X programs will look for their resources, such as
+
+	/usr/X11R6/lib/X11/app-defaults/XEphem	# typical for linux and freebsd
+    
+    or 
+
+	/usr/lib/X11/app-defaults/XEphem	# typical for traditional UNIX
+
+4) That should do it. There is lots of help built-in. Enjoy! 
+
+	$ xephem &
+
+Let me know what you think.
+
+
+
+Elwood Downey
+ecdowney@ClearSkyInstitute.com
+http://www.ClearSkyInstitute.com
